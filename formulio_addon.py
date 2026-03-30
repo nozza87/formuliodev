@@ -279,7 +279,7 @@ def rd_unrestrict_link(api_key, link, user_ip=None):
     """Unrestrict a link on RD. Returns download URL or None."""
     url = f"{config.RD_API_BASE}/unrestrict/link"
     headers = {'Authorization': f'Bearer {api_key}'}
-    data = {'link': link, 'remote': 1}
+    data = {'link': link, 'remote': 0}
     try:
         resp = requests.post(url, headers=headers, data=data, timeout=15)
         if resp.status_code == 403:
